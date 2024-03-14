@@ -7,65 +7,65 @@
 <body>
 <h1>Hangman!</h1>
 <script>
-// Create an array of words
-var words = [
-    "Madi is stupid",
-    "Madi is trash",
-    "Madi is a idiot",
-    "Madi is dumb",
-    "Cereal goose is cool",
-    "Cereal goose is smart",
-    "Cereal goose is epic gamer",
-    "Cereal goose is pog",
-    "Pog",
-    "Epic",
-    "Oss is good",
-    "Scool = bad",
-    "Potato is big brain",
-    "Potato is fast",
-    "Potato is a good coder",
-    "Potato is nice person"
-];
-var win = true;
-// Pick a random word
-var word = words[Math.floor(Math.random() * words.length)];
+    // Create an array of words
+    var words = [
+        "Madi is stupid",
+        "Madi is trash",
+        "Madi is a idiot",
+        "Madi is dumb",
+        "Cereal goose is cool",
+        "Cereal goose is smart",
+        "Cereal goose is epic gamer",
+        "Cereal goose is pog",
+        "Pog",
+        "Epic",
+        "Oss is good",
+        "Scool = bad",
+        "Potato is big brain",
+        "Potato is fast",
+        "Potato is a good coder",
+        "Potato is nice person"
+    ];
+    var win = true;
+    // Pick a random word
+    var word = words[Math.floor(Math.random() * words.length)];
 
-// Set up the answer array
-var answerArray = [];
-for (var i = 0; i < word.length; i++) {
-    answerArray[i] = "_";
-}
-var remainingLetters = word.length;
+    // Set up the answer array
+    var answerArray = [];
+    for (var i = 0; i < word.length; i++) {
+        answerArray[i] = "_";
+    }
+    var remainingLetters = word.length;
 
-// The game loop
-while (remainingLetters > 0) {
-    // Show the player their progress
-    alert(answerArray.join(" "));
+    // The game loop
+    while (remainingLetters > 0) {
+        // Show the player their progress
+        alert(answerArray.join(" "));
 
-    // Get a guess from the player
-    var guess = prompt("Guess a letter, or click Cancel to stop playing.");
-    if (guess === null) {
-        win = false;
-        break;
-    } else if (guess.length !== 1) {
-        alert("Please enter a single letter.");
-    } else {
-        // Update the game state with the guess
-        for (var j = 0; j < word.length; j++) {
-            if (word[j].toLowerCase() === guess.toLowerCase()) {
-                answerArray[j] = guess;
-                remainingLetters--;
+        // Get a guess from the player
+        var guess = prompt("Guess a letter, or click Cancel to stop playing.");
+        if (guess === null) {
+           win = false;
+          break;
+        } else if (guess.length !== 1) {
+           alert("Please enter a single letter.");
+        } else {
+            // Update the game state with the guess
+            for (var j = 0; j < word.length; j++) {
+                if (word[j].toLowerCase() === guess.toLowerCase()) {
+                    answerArray[j] = guess;
+                    remainingLetters--;
+                }
             }
         }
     }
-}
 
 
-// Show the answer and congratulate the player
-alert(answerArray.join(" "));
-if(win == true){
-    alert("Good job! The answer was " + word);
-}
+    // Show the answer and congratulate the player
+    alert(answerArray.join(" "));
+    if(win == true){
+        alert("Good job! The answer was " + word);
+    }
 </script>
 </body> 
 </html>
